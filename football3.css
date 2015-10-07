@@ -1,0 +1,337 @@
+body {
+
+	background-color: lightgray;
+}
+
+.stats {
+	width: 200px;
+	height: 650px;
+	float: left;
+	margin-right: 10px;
+	background-color: black;
+	margin-left: 50px;
+	overflow: hidden;
+	border-radius: 10px;
+
+}
+
+#you {
+	color: red;
+}
+
+#computer {
+	color: blue;
+}
+
+#gsHeader {
+	font-family: Arial;
+	text-align: center;
+	color: white;
+}
+
+.playerstats {
+	padding-left: 10px;
+	color: white;
+	font-family: Arial;
+	font-size: 13px;
+}
+
+.field {
+
+	width: 850px;
+	height: 650px;
+	background-color: black;
+	margin-right: auto;
+	margin-left: 300px;
+	border-radius: 10px;
+
+}
+
+#scoreboard {
+	width: 800px;
+	height: 150px;
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	color: white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.floating {
+
+	display: inline-block;
+}
+
+.names {
+	font-family: Arial;
+	text-align: center;
+}
+
+#p1 {
+	width: 150px;
+	height: 150px;
+	background-color: black;
+	color: white;
+	margin-left: 5px;
+	overflow: auto;
+}
+
+
+#p1name {
+
+}
+
+#p2 {
+
+	width: 150px;
+	height: 150px;
+	background-color: black;
+	margin-right: 5px;
+	overflow: auto;
+	color: white;
+
+}
+
+#clockcontainer {
+	width: 482px;
+	height: 150px;
+	background-color: black;
+	display: inline-block;
+	overflow: auto;
+	color: white;
+
+}
+
+#clock {
+	text-align: center;
+	alignment: center;
+	color: white;
+	font-family: Arial;
+}
+
+#currentDown {
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-family: Arial;
+	width: 220px;
+	height: 65px;
+	overflow: auto;
+	display: inline-block;
+	text-align: center;
+	margin-left: 18px;
+}
+
+#currentYTG {
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-family: Arial;
+	width: 220px;
+	height: 65px;
+	overflow: auto;
+	display: inline-block;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.scores {
+	background-color: black;
+	text-align: center;
+	font-size: 22px;
+	color: white;
+	font-family: Arial;
+}
+
+.textDisplay {
+	padding-left: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	background-color: #282828;
+	color: yellow;
+	width: 791px;
+	height: 250px;
+	font-size: 25px;
+	font-family: Arial;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 75px;
+
+}
+
+#fieldposition {
+	
+}
+
+.playbook {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	overflow: auto;
+	background-color: black;
+	color: yellow;
+	width: 800px;
+	height: 200px;
+	alignment: center;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+
+.oPlay {
+	margin-left: 0px;
+
+}
+
+.allplays {
+	alignment: center;
+	/* margin-left: 205px; */
+	overflow: auto;
+}
+
+.plays {
+	width: 63px;
+	height: 50px;
+	overflow: auto;
+	margin-top: 10px;
+	font-size: 9px;
+	background-color: #660066; 
+	color: white;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	outline: 0;
+
+}
+
+.rush {
+	background-color: #000099;
+	color: white;
+}
+
+.receive {
+	background-color: #0000CC;
+	color: #E0E0E0;
+}
+
+
+.sidebar:hover {
+	background-color: #CC3300;
+	color: white;
+}
+
+#postScore {
+	/* background-color: #990000;
+	color: white;  */
+}
+
+#computer {
+	/* background-color: #990000;
+	 color: white; */ 
+}
+
+.cOmp {
+	background-color: #990000;
+	color: white;
+}
+
+.kick {
+	background-color: #660066;
+	color: white;
+}
+
+.receiveKO {
+
+	background-color: #660066;
+	color: white;
+}
+
+
+.instructions {
+
+	margin-left: 25px;
+	margin-right: auto;
+	overflow: auto;
+}
+
+.sidebar{
+
+	background-color: #FFFF00;
+	font-size: 16px;
+	color: black;
+
+}
+
+#new {
+	width: 150px;
+	/* background-color: #FFFF00;
+	font-size: 16px;
+	color: black; */
+	border-radius: 10px;
+	outline: 0;
+}
+
+
+
+#howTo {
+	width: 150px;
+	/* background-color: #FFFF00; */
+	/* font-size: 16px;
+	color: black; */
+	border-radius: 10px;
+	outline: 0;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	visibility: hidden;
+}
+
+.popup {
+	width: 600px;
+	height: 800px;
+	padding: 5px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #333;
+	color: silver;
+	box-shadow: 5px 5px 10px black;
+}
+
+.popup .head {
+	background-color: deepskyblue;
+	padding: 5px;
+	color: black;
+}
+
+.popup .body {
+	padding: 15px;
+	font-size: 14px;
+	font-family: Arial;
+}
+
+button:hover {
+	background-color: #CC3300;
+	color: white;
+}
+
+p.body {
+
+	margin-top: 0em;
+	margin-bottom: 0em;
+	
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Football 3</title>
+	<link rel="stylesheet" href="football3.css">
+</head>
+<body>
+
+	<div class = "stats">
+		
+		<h3 id="gsHeader">PASSING</h3>
+		<p class="playerstats" id="attempts">Attempts:</p>
+		<p class="playerstats" id = "completions">Completions:</p>
+		<p class="playerstats" id = "yardsThrown">Yards Thrown:</p>
+		<p class="playerstats" id = "tdsThrown">Touchdowns:</p>
+		<p class="playerstats" id = "intThrown">Interceptions:</p>
+		<p class="playerstats" id = "sacked">Sacks:</p>
+
+		<h3 id="gsHeader">RUSHING</h3>
+		<p class="playerstats" id="rushAttempts">Attempts:</p>
+		<p class="playerstats" id="rushYards">Yards:</p>
+		<p class="playerstats" id="rushTD">Touchdowns:</p>
+		<p class="playerstats" id="lostFumble">Fumbles:</p>
+
+		<h3 id="gsHeader">KICKING</h3>
+		<p class="playerstats" id="fgAttempts">FG Attempts:</p>
+		<p class="playerstats" id="fgMade">FG Made:</p>
+		<p class="playerstats" id="fgLong">Longest FG:</p>
+
+		<div class = "instructions">
+				<button onclick="resetGame_clickHandler(event)" class = "plays sidebar" id="new">New Game</button>
+
+				<button onclick="howTo_clickHandler(event)" class = "plays sidebar" id="howTo">How to Play</button>
+		</div>
+
+	</div>
+
+
+	<div class = "field">
+
+		<div id = "scoreboard">
+			
+			<div class="floating" id = "p1">
+				<div class="names" id = "p1name">
+					<h3 id="you">YOU</h3>
+				</div>
+
+				<div class="scores" id = "p1score">
+					<h3>21</h3>
+				</div>
+
+			</div>
+
+			<div class="floating" id = "clockcontainer">
+				
+				<div id="clock">
+					<h1 id="timeleft">60:00</h1>
+				</div>
+
+				<div id="currentDown">
+					<h3></h3>
+				</div>
+				
+				<div id="currentYTG">
+					<h3></h3>
+				</div>
+
+			</div>
+
+			<div class="floating" id = "p2">
+				<div class="names" id = "p2name">
+					<h3 id="computer">COMPUTER</h3>
+				</div>
+
+				<div class="scores" id = "p2score">
+					<h3>21</h3>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class = "textDisplay">
+			<p id="playOutcome"></p>
+			<p id="fieldPosition"></p>
+
+		</div>
+
+		<div class = "playbook">
+
+			<!-- <div class = "oPlays"> -->
+
+				<div><canvas id="myCanvas" width="800" height="100"></canvas></div>
+				<div class = "oPlay">
+
+				<button onclick="kickoff_clickHandler(event)" class = "plays receiveKO" id="kickoff">Receive</button>
+				
+				<button onclick="runMiddle_clickHandler(event)" class = "plays rush" id="runMiddle">Goaline</button>
+
+				<button onclick="runLeft_clickHandler(event)" class = "plays rush" id="runLeft">Off-Tackle</button>
+
+				<button onclick="runRight_clickHandler(event)" class = "plays rush" id="runRight">Toss Run</button>				
+				
+				<button onclick="passShort_clickHandler(event)" class = "plays receive" id="passShort">Screen</button>
+
+				<button onclick="passMedium_clickHandler(event)" class = "plays receive" id="passMedium">Pass</button>
+
+				<button onclick="passLong_clickHandler(event)" class = "plays receive" id="passLong">Pass Long</button>
+				
+				<button onclick="fg_clickHandler(event)" class = "plays kick" id="fieldgoal">FG</button>
+				
+				<button onclick="punt_clickHandler(event)" class = "plays kick" id="puntball">Punt</button>
+
+				<button onclick="postScore_clickHandler(event)" class = "plays cOmp" id="postScore">Kick</button>
+
+				<button onclick="runDefense_clickHandler(event)" class = "plays cOmp" id="rundefense">Run Def</button>
+
+				<button onclick="passDefense_clickHandler(event)" class = "plays cOmp" id="passdefense">Pass Def</button>
+				
+				</div>
+
+			</div>
+	
+
+		<div class="modal">
+		<div class="popup">
+
+			<h2 class="head">How to Play Simulated Football</h2>
+
+			<p class="body">START GAME:<br></br>Click the "Receive" button to receive a kick from the computer. You then can call an offensive play by clicking on one of the highlighted buttons.</p>
+
+			<p class="body">If you score a TD or kick a field goal, you then click on the "Kick" button to kick the ball to the computer, which will then have possession of the ball.</p>
+
+			<p class="body">When the computer has the ball, you choose either the run defense or pass defense play to simulate the computer's offensive play call.</p>
+
+			<p class="body">PLAYBOOK:<br></br>Goaline Run - higher chance for gaining short yardage, but also higher chance of fumbling.<br></br>Off-tackle - run play offering lower chance of gaining postive yards, but longer positive yardage potential.<br></br>Toss/Sweep - run play with equal chances of big yardage and negative yardage potential.<br></br>Screen Pass - high chance of low yardage gains<br></br>Pass - normal pass play with lower completion percentage, but higher yardage gains<br></br>Pass Long - even lower completion percentage and higher interception risk, but potential for big yardage gains.<br></br>Run Def - When the computer is on offense, this defense protects against the run<br></br>Pass Def - This defense protects against the pass<br></br>*** When it is 4th down and you anticipate the computer punting or attempting a field goal, your defensive options remain Run Def and Pass Def to protect against a 4th down run or pass.</p>
+
+			<button class="close">Close</button>
+			
+		</div>
+	</div>
+
+	<script src="football3.js"></script>
+</body>
+</html>
