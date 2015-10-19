@@ -1,5 +1,43 @@
 // Simulated Football version 3.0 by Sonny Sheth
 
+//heres an example of how one might declare all these variables.
+//Throughout the program you can reference them by 'gameVars.fieldPosition' etc.
+//Not 
+
+var gameVars = {
+	fieldPosition: null,
+	currentFP: null,
+	yardsToGo: null,
+	yardsGained: null,
+	down: null,
+	p1Score: 0,
+	p2Score: 0,
+	clock: 3600, // set this in seconds
+	min: null,
+	sec: null,
+	playBook: null,
+	highLight: "3px solid #00FF00", //highlight border around enabled buttons
+	delay: 1000, // used for the setTimeout function in terms of how long before showing next display status
+
+};
+
+// the variables to keep track of game stats
+var gameStats = {
+	passes: 0,
+	completions: 0,
+	yardsThrown: 0,
+	passTD: 0,
+	rushes: 0,
+	rushYardage: 0,
+	intsThrown: 0,
+	numSacks: 0,
+	tdRushed: 0,
+	fumbles: 0,
+	fgAttempted: 0,
+	fgsMade: 0,
+	fgs: [0]
+};
+
 var fieldPosition;
 var currentFP;
 var yardsToGo;
@@ -77,7 +115,7 @@ var computerResults = [
 	'Computer runs for a touchdown!',
 	'Computer returns kickoff for a touchdown!',
 	'Touchback on the kickoff'
-]
+];
 
 var displayResults = {
 
@@ -95,7 +133,7 @@ var displayResults = {
 		'You return the kickoff for a Touchdown!!!',
 		'Computer tackled in its end zone, Safety!'
 	]
-}
+};
 
 var canvas;
 var context;
@@ -110,7 +148,7 @@ window.onload = function(){
 
 	drawEverything();
 
-}	
+};
 
 function moveBall(yardline){
 
@@ -120,7 +158,7 @@ function moveBall(yardline){
 	} else if (xPos < 50){
 		xPos = 25;
 	}
-	yPos = randomNumber(25,60)
+	yPos = randomNumber(25,60);
 
 	drawEverything(); // had 'red' as the argument
 
@@ -142,8 +180,8 @@ function removeBall(){
 }
 
 function drawEverything(){ // color was a parameter here
-	var color;
-	playerHasBall === true  ? color = 'red' : color = 'blue';
+	//this ternery was evaluating correctly, but I don't think its best practice to do it that way :P
+	var color = playerHasBall === true  ? 'red' : 'blue';
 
 	makeRect(0, 5, 800, 75, 'darkgreen'); // the field
 	makeRect(0, 5, 50, 75, 'darkblue'); // endzone
@@ -239,67 +277,67 @@ function changeModal(attribute){
 
 button.onclick= function(){
 	changeModal('hidden');
-}
+};
 
 howTo.onclick = function(){
 	changeModal('visible');
-}
+};
 
 function kickoff_clickHandler(event){
 		clockCheck();
 		runClock();
 		playerHasBall = true;
 		kickOff();
-};
+}
 
 function runMiddle_clickHandler(event){
 		clockCheck();
 		runClock(1.25);
 		playBook.run[0]();
-};
+}
 
 function runLeft_clickHandler(event){
 		clockCheck();
 		runClock(1.25);
 		playBook.run[1]();
-};
+}
 
 function runRight_clickHandler(event){
 		clockCheck();
 		runClock(1.25);
 		playBook.run[2](); 
 		console.log('button was clicked');
-};
+}
 
 function passShort_clickHandler(event){
 		clockCheck();
 		runClock();
 		playBook.pass[0]();
-};
+}
 
 function passMedium_clickHandler(event){
 		clockCheck();
 		runClock();
 		playBook.pass[1]();
-};
+}
 
 function passLong_clickHandler(event){
 		clockCheck();
 		playBook.pass[2]();
-};
+}
 
 function fg_clickHandler(event){
 		clockCheck();
 		runClock();
 		playBook.fieldGoal();
-};
+}
 
 function punt_clickHandler(event){
 		clockCheck();
 		runClock();
 		playerHasBall = false;
 		playBook.punt();
-};
+}
 
 function postScore_clickHandler(event){
 	clockCheck();
@@ -354,7 +392,7 @@ function kickOff(){
 	
 	postKickStatus();
 	moveBall();
-};
+}
 
 function postKickStatus(){
 
@@ -395,7 +433,7 @@ function postKickStatus(){
 	} else {
 		yardsToGo = 100 - fieldPosition;
 		outcome.innerHTML = playerReceive[0];
-		fP.innerHTML = playerReceive[2]
+		fP.innerHTML = playerReceive[2];
 		//console.log('clock: ' + clock + ', fieldPosition: ' + fieldPosition);
 	}
 	currentYTG.innerHTML = yardsToGo + ' yards to go';
@@ -445,7 +483,7 @@ function runClock(time){ // time parameter is set in case want to make certain p
 	clock -= Math.floor(randomNumber(10, 60) * time);
 	min = Math.floor(clock/60);
 	sec = clock % 60;
-	if(sec < 10){sec = '0' + sec};
+	if(sec < 10){sec = '0' + sec;}
 	timeleft.innerHTML = min + ':' + sec;
 }
 
@@ -667,8 +705,8 @@ playBook = {
 
 				case 6:
 				if(randomNumber(1,10) < 7){
-					yardsGained = randomNumber(5, 45)
-				} else {yardsGained = randomNumber(15, 100)};
+					yardsGained = randomNumber(5, 45);
+				} else {yardsGained = randomNumber(15, 100);}
 				nonTOPass();
 				break;
 			}
@@ -707,8 +745,8 @@ playBook = {
 
 				case 10:
 				if(randomNumber(1,10) < 8){
-					yardsGained = randomNumber(30, 50)
-				} else {yardsGained = randomNumber(50, 100)};
+					yardsGained = randomNumber(30, 50);
+				} else {yardsGained = randomNumber(50, 100);}
 				nonTOPass();
 				break;
 			}
@@ -748,7 +786,7 @@ playBook = {
 				fP.innerHTML = "Computer takes over on your " + fieldPosition + " yard line";
 			}
 			else{
-				fP.innerHTML = 'Computer takes over on its ' + (100 - fieldPosition) + ' yard line'
+				fP.innerHTML = 'Computer takes over on its ' + (100 - fieldPosition) + ' yard line';
 			}
 			//console.log('missed FG, ball on player side');
 			outcome.innerHTML = displayResults.playerResults[2];
@@ -796,7 +834,7 @@ playBook = {
 		} 
 	}
 
-}
+};
 
 function nonINTPass(type){
 	updateGameStats();
@@ -809,7 +847,7 @@ function nonINTPass(type){
 	if(type === 'sack'){
 		statusCheck('sack');
 	} else if (type === 'incomplete') {
-		statusCheck('incomplete')
+		statusCheck('incomplete');
 	} else {
 		statusCheck('pass');
 	}
@@ -853,7 +891,7 @@ function playerINT(){
 		updateGameStats();
 		clockCheck();
 		outcome.innerHTML = displayResults.playerResults[6];
-		playerTOFieldPosDisplay()
+		playerTOFieldPosDisplay();
 		moveBall();
 		computerHasBall();
 		//console.log('INTERCEPTION!');
@@ -901,8 +939,8 @@ function statusCheck(type){
 
 	if(fieldPosition > 99){
 
-		if(type === 'pass'){passTD++};
-		if(type === 'run'){tdRushed++};
+		if(type === 'pass'){passTD++;}
+		if(type === 'run'){tdRushed++;}
 		clearDownYTG();
 		scoring.p1TD();
 	}
@@ -984,7 +1022,7 @@ var scoring = {
 		//console.log((100 - currentFP) + ' P1 touchdown!!!!');
 	},
 	p2TD: function(display){
-		p2ScoreUpdate(7, display, startGame)
+		p2ScoreUpdate(7, display, startGame);
 		computerScoreBall();
 		//console.log('P2 touchdown!!!!');
 	},
@@ -1025,7 +1063,7 @@ var scoring = {
 		updateGameStats();
 		//console.log('P1 Safety!');
 	}
-}
+};
 
 function postP1ScoreActions(callback){
 	displayFP('remove');
@@ -1183,7 +1221,7 @@ function startGame(){
 
 	setButtonHighlight(highLight, 'none', 'none','none','none','none',
 					'none','none','none','none','none');
-};
+}
 
 function afterPlayerReceives(){
 	playerHasBall = true;
@@ -1199,7 +1237,7 @@ function afterPlayerReceives(){
 					highLight,highLight,highLight,highLight,
 					highLight,'none','none');	
 	
-};
+}
 
 function afterPlayerScore(){
 
@@ -1213,7 +1251,7 @@ function afterPlayerScore(){
 					'none','none','none',highLight,'none');
 	fP.innerHTML = '';
 
-};
+}
 
 function computerHasBall(){
 	playerHasBall = false;
@@ -1310,7 +1348,7 @@ function computerTurnOver(type){
 	playerHasBall = true;
 	disableButtons();
 	clockCheck();
-	if(clock <= 0){return};
+	if(clock <= 0){return;}
 	down = 1;
 
 	switch(type){
@@ -1326,7 +1364,7 @@ function computerTurnOver(type){
 					displayFP();
 					moveBall();
 					afterPlayerReceives();
-				},delay)
+				},delay);
 			}
 		else {
 			disableButtons();
@@ -1337,7 +1375,7 @@ function computerTurnOver(type){
 					displayFP();
 					moveBall();
 					afterPlayerReceives();
-				},delay)
+				},delay);
 		}
 		break;
 
@@ -1352,7 +1390,7 @@ function computerTurnOver(type){
 					displayFP();
 					moveBall();
 					afterPlayerReceives();
-				},delay)
+				},delay);
 		}
 		else {
 			outcome.innerHTML = computerResults[randomNumber(6,10)]; 
@@ -1362,7 +1400,7 @@ function computerTurnOver(type){
 					displayFP();
 					moveBall();
 					afterPlayerReceives();
-				},delay)
+				},delay);
 		}
 		break;
 
@@ -1374,7 +1412,7 @@ function computerTurnOver(type){
 					displayFP();
 					moveBall();
 					afterPlayerReceives();
-				},delay)
+				},delay);
 		break;
 
 		default:
@@ -1385,7 +1423,7 @@ function computerTurnOver(type){
 					displayFP();
 					moveBall();
 					afterPlayerReceives();
-				},delay)
+				},delay);
 		break;
 	}
 }
@@ -1400,7 +1438,7 @@ function computerSimulation(firstOutcome, secondOutcome){
 		moveBall();
 		ballFieldPositionPlacement();
 		reEnableButtons(); 
-	}, delay)
+	}, delay);
 
 }
 
@@ -1411,7 +1449,7 @@ function computerTDSimulation(firstOutcome, displayNumber){
 	window.setTimeout(function(){
 		scoring.p2TD(displayNumber);
 		clearDownYTG(); 
-	}, delay)
+	}, delay);
 
 }
 
