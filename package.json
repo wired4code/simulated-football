@@ -1,0 +1,22 @@
+{
+  "name": "football",
+  "version": "1.0.0",
+  "description": "Simulated Football Game",
+  "main": "football3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wired4code/simulated-football.git"
+  },
+  "author": "Sonny Sheth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wired4code/simulated-football/issues"
+  },
+  "homepage": "https://github.com/wired4code/simulated-football#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
