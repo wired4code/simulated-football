@@ -1,9 +1,6 @@
 
 // Simulated Football version 3.0 by Sonny Sheth
 
-//heres an example of how one might declare all these variables.
-//Throughout the program you can reference them by 'gameVars.fieldPosition' etc.
-//Not
 
 var gameVars = {
 	fieldPosition: null,
